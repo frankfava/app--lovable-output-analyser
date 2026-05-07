@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Lovable - Repo Analyser" },
+      { name: "description", content: "Analyzes GitHub repositories to display key metrics and insights." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Lovable - Repo Analyser" },
+      { property: "og:description", content: "Analyzes GitHub repositories to display key metrics and insights." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Lovable - Repo Analyser" },
+      { name: "twitter:description", content: "Analyzes GitHub repositories to display key metrics and insights." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e32c126-796a-493c-84fa-ac76d69110f1/id-preview-d381e5fe--31890093-b085-405e-a6b0-755bbe54000d.lovable.app-1778183595727.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e32c126-796a-493c-84fa-ac76d69110f1/id-preview-d381e5fe--31890093-b085-405e-a6b0-755bbe54000d.lovable.app-1778183595727.png" },
     ],
     links: [
       {
