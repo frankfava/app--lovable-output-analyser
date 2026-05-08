@@ -8,6 +8,7 @@ import { Footer } from "./analyser/Footer";
 import { Hero } from "./analyser/Hero";
 import { LoadingState, STEPS } from "./analyser/LoadingState";
 import { ResultView } from "./analyser/ResultView";
+import { validateRepoUrl } from "@/lib/validate-repo";
 
 const SELF_REPO = "github.com/frankfava/app--lovable-output-analyser";
 
@@ -18,6 +19,12 @@ export function Analyser() {
   const [result, setResult] = useState<ScorecardData | null>(null);
 
   async function runAnalysis(url: string) {
+    const validation = validateRepoUrl(url);
+    if (!validation.ok) {
+      toast.error(validation.error);
+      return;
+    }
+
     setResult(null);
     setLoading(true);
     setStepIdx(0);
@@ -28,7 +35,7 @@ export function Analyser() {
 
     try {
       const { data, error } = await supabase.functions.invoke("analyse-repo", {
-        body: { repoUrl: url },
+        body: { repoUrl: validation.value },
       });
       if (error) throw error;
       if (data?.error) throw new Error(data.error);
