@@ -123,9 +123,13 @@ function DimensionRow({ dim, index }: { dim: Dimension; index: number }) {
       </button>
       {open && (
         <div className="px-5 pb-5 pt-1 border-t bg-surface/40">
-          <p className="text-sm text-foreground/80 leading-relaxed mt-3">
-            {dim.explanation}
-          </p>
+          <div className="space-y-3 mt-3">
+            {dim.explanation.split(/\n\n+/).map((para, i) => (
+              <p key={i} className="text-sm text-foreground/80 leading-relaxed">
+                {para}
+              </p>
+            ))}
+          </div>
           {dim.file_references.length > 0 && (
             <div className="mt-4">
               <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">

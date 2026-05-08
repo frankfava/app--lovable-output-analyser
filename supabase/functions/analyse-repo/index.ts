@@ -184,7 +184,12 @@ Analyse the provided files and score the codebase across exactly five dimensions
 4. Dependency Hygiene — reasonable dep count, no deprecated/duplicate packages, signs of bundle bloat.
 5. Maintainability — could a mid-level React dev pick this up? Naming, readability, separation of concerns.
 
-For each dimension provide a 1–5 score, a 2–3 sentence explanation, and 1–3 specific file references. Also provide an overall score (weighted average, 1–5) and a 2–3 sentence summary.`;
+For each dimension provide:
+- a 1–5 score
+- a detailed explanation of 2–3 full paragraphs (roughly 120–220 words total), separated by a blank line ("\\n\\n"). The first paragraph should describe what the code does well and the patterns observed (with specific examples). The second should cover weaknesses, risks, or smells. An optional third paragraph should give concrete, actionable suggestions a team could apply.
+- 1–3 specific file references as evidence.
+
+Also provide an overall score (weighted average, 1–5) and a 2–3 sentence overall summary. Be specific and reference real symbols, files, or patterns from the provided code — avoid generic statements.`;
 
     const userContent = files
       .map((f) => `--- FILE: ${f.path} ---\n${f.content}`)
